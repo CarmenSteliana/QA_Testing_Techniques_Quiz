@@ -69,25 +69,74 @@
     },
     {
       "id": "q7",
-      "question": "7. (White Box) Ce caz de test este necesar pentru 100% Statement Coverage în: if (x > 10) { print(\"A\"); } print(\"B\"); ?",
+      "type": "practical",
+      "code": "function verificaNumar(valoare) {\n    if (valoare > 10) {\n        print(\"Valoare mare\");\n    }\n    print(\"Finalizare verificare\");\n}",
+      "question": "7. (Exercițiu Practic) Analizează codul de mai sus. Ce caz de test este suficient și optim pentru a obține o acoperire a instrucțiunilor de 100% (100% Statement Coverage)?",
       "options": [
-        "A) Un singur caz de test unde x > 10 (ex: x = 11)",
-        "B) Două cazuri de test: x = 11 și x = 5",
-        "C) Un singur caz de test unde x <= 10 (ex: x = 9)"
+        "A) Un singur caz de test în care condiția este Adevărată (ex: valoare = 15)",
+        "B) Două cazuri de test: valoare = 15 și valoare = 5",
+        "C) Un singur caz de test în care condiția este Falsă (ex: valoare = 8)"
       ],
       "correct": 0,
-      "explanation": "Este necesar un singur caz de test unde x > 10 pentru a executa toate instrucțiunile (x > 10 execută print 'A', apoi se execută print 'B')."
+      "explanation": "Alegând o valoare mai mare decât 10 (ex: 15), codul intră pe ramura if (executând afișarea mesajului), apoi rulează și linia de finalizare. Astfel, toate instrucțiunile sunt parcurse dintr-un singur test.",
+      "stepByStep": "<ol class='list-decimal list-inside space-y-3 text-slate-700'><li class='leading-relaxed'><strong>Scopul Statement Coverage:</strong> Caută să ruleze fiecare linie de cod executabilă din funcție cel puțin o dată.</li><li class='leading-relaxed'><strong>Analiza blocului condițional:</strong> Funcția are două apeluri executabile: <code>print(\"Valoare mare\");</code> (care rulează doar dacă condiția if este True) și <code>print(\"Finalizare verificare\");</code> (care se execută întotdeauna).</li><li class='leading-relaxed'><strong>Execuția cu valoare = 15 (True):</strong> Rularea codului cu 15 face ca condiția <code>valoare > 10</code> să fie True. Se execută corpul if, apoi se execută și linia de finalizare. Toate liniile au fost parcurse.</li><li class='leading-relaxed'><strong>Execuția cu valoare = 8 (False):</strong> Dacă am alege 8, condiția ar fi False, iar codul ar sări peste linia din interiorul if, ratând acoperirea ei. Prin urmare, un singur test cu valoarea 15 este suficient și optim pentru 100% coverage.</li></ol>"
     },
     {
       "id": "q8",
-      "question": "8. (White Box) Pentru a testa Path Coverage în: if (a) if (b) X(); else Y();, care este numărul de căi independente?",
+      "type": "practical",
+      "code": "function proceseazaDate(esteAutentificat, arePermisiune) {\n    if (esteAutentificat) {\n        if (arePermisiune) {\n            executaActiune();\n        } else {\n            afiseazaEroare();\n        }\n    }\n}",
+      "question": "8. (Exercițiu Practic) Analizează structura condițională imbricată de mai sus. Pentru a obține o acoperire completă a căilor de execuție (100% Path Coverage), care este numărul minim de căi independente pe care trebuie să le testezi?",
       "options": [
-        "A) 2 căi",
-        "B) 3 căi: (a=True, b=True), (a=True, b=False) și (a=False)",
-        "C) 4 căi: toate combinațiile posibile"
+        "A) 2 căi independente",
+        "B) 3 căi independente: 1) Autentificat & Cu Permisiune; 2) Autentificat & Fără Permisiune; 3) Neautentificat",
+        "C) 4 căi independente (toate combinațiile posibile)"
       ],
       "correct": 1,
-      "explanation": "Există 3 căi: 1) (a=T, b=T) -> execută X; 2) (a=T, b=F) -> execută Y; 3) (a=F) -> iese din structură."
+      "explanation": "Există exact 3 căi logice distincte. Prima decizie Falsă (Neautentificat) oprește imediat execuția și iese din funcție, al doilea if nemaifiind evaluat.",
+      "stepByStep": "<ol class='list-decimal list-inside space-y-3 text-slate-700'><li class='leading-relaxed'><strong>Scopul Path Coverage:</strong> Testarea tuturor căilor logice posibile parcurse de la punctul de intrare în funcție până la cel de ieșire.</li><li class='leading-relaxed'><strong>Calea 1 (Autentificat = True, Permisiune = True):</strong> Rularea intră în primul if, apoi în al doilea if și execută <code>executaActiune()</code>. Este prima cale completă.</li><li class='leading-relaxed'><strong>Calea 2 (Autentificat = True, Permisiune = False):</strong> Rularea intră în primul if, dar la al doilea intră pe ramura else și execută <code>afiseazaEroare()</code>. Este a doua cale completă.</li><li class='leading-relaxed'><strong>Calea 3 (Autentificat = False):</strong> Rularea evaluează primul if ca False și iese direct din funcție. Deoarece execuția s-a oprit instantaneu, starea permisiunii nu mai contează. Aceasta este a treia cale independentă.</li><li class='leading-relaxed'><strong>Concluzie:</strong> Există exact 3 căi logice distincte care pot fi parcurse în realitate prin acest cod.</li></ol>"
+    },
+    {
+      "id": "q9",
+      "type": "practical",
+      "code": "function calculateDiscount(age, isMember) {\n    let discount = 0;\n    if (age < 18) {\n        discount = 0.20;\n    } else {\n        if (isMember) {\n            discount = 0.15;\n        } else {\n            discount = 0.05;\n        }\n    }\n    return discount;\n}",
+      "question": "9. (Exercițiu Practic) Analizează codul de mai sus. Câte cazuri de test sunt necesare pentru a obține o acoperire de 100% a deciziilor (Decision Coverage) și care sunt acestea?",
+      "options": [
+        "A) 2 cazuri de test: (age=15, isMember=true) și (age=25, isMember=false)",
+        "B) 3 cazuri de test: (age=15, isMember=false) [ramura if], (age=20, isMember=true) [ramura else-if], și (age=30, isMember=false) [ramura else-else]",
+        "C) 1 singur caz de test: (age=17, isMember=true)"
+      ],
+      "correct": 1,
+      "explanation": "Pentru 100% Decision Coverage avem 3 ramuri decizionale de acoperit (1 pentru decizia exterioară când e True, și 2 pentru decizia interioară când cea exterioară e False). Sunt suficiente 3 cazuri de test distincte.",
+      "stepByStep": "<ol class='list-decimal list-inside space-y-3 text-gray-700'><li class='leading-relaxed'><strong>Identificarea deciziilor:</strong> Decizia principală este <code>if (age &lt; 18)</code>, iar decizia secundară (imbricată în ramura else) este <code>if (isMember)</code>.</li><li class='leading-relaxed'><strong>Ramura principală (True):</strong> Rularea cu <code>age = 15</code> (ex: sub 18) evaluează prima condiție la True. Aceasta acoperă prima decizie pe ramura True (Discount = 20%).</li><li class='leading-relaxed'><strong>Ramura principală (False) + Secundară (True):</strong> Rularea cu <code>age = 20</code> (peste 18) și <code>isMember = true</code> evaluează prima decizie la False și pe cea secundară la True. (Discount = 15%).</li><li class='leading-relaxed'><strong>Ramura principală (False) + Secundară (False):</strong> Rularea cu <code>age = 30</code> și <code>isMember = false</code> evaluează prima decizie la False și pe cea secundară la False. (Discount = 5%).</li><li class='leading-relaxed'><strong>Concluzie:</strong> Sunt suficiente cele 3 cazuri de test distincte pentru a acoperi toate direcțiile decizionale din cod.</li></ol>"
+    },
+    {
+      "id": "q10",
+      "type": "practical",
+      "code": "function findElement(arr, target) {\n    let index = -1;\n    for (let i = 0; i < arr.length; i++) {\n        if (arr[i] === target) {\n            index = i;\n            break;\n        }\n    }\n    return index;\n}",
+      "question": "10. (Exercițiu Practic) Analizează codul de mai sus. Pentru a obține 100% Statement Coverage (acoperirea instrucțiunilor) pe această funcție, ce set de date de intrare este suficient și optim?",
+      "options": [
+        "A) Un singur test: arr = [1, 2, 3], target = 4",
+        "B) Două teste: 1) arr = [5], target = 5; 2) arr = [], target = 3",
+        "C) Un singur test: arr = [10, 20], target = 20"
+      ],
+      "correct": 2,
+      "explanation": "Deoarece elementul a fost găsit, toate instrucțiunile din interiorul buclei și din interiorul condiției if au fost parcurse. Un singur caz de test arr = [10, 20], target = 20 este suficient pentru a asigura 100% Statement Coverage.",
+      "stepByStep": "<ol class='list-decimal list-inside space-y-3 text-gray-700'><li class='leading-relaxed'><strong>Obiectivul Statement Coverage:</strong> Trebuie ca fiecare linie de cod executabilă să fie parcursă cel puțin o dată.</li><li class='leading-relaxed'><strong>Analiza blocului conditional:</strong> Liniile cele mai dificil de atins sunt <code>index = i;</code> și <code>break;</code> din interiorul structurii <code>if (arr[i] === target)</code>.</li><li class='leading-relaxed'><strong>Execuția cu elementul găsit:</strong> Dacă rulăm testul <code>arr = [10, 20]</code> și <code>target = 20</code>: <code>index = -1</code> (executat), bucla la <code>i = 0</code> (corpul if nu se execută), bucla la <code>i = 1</code> (condiția if este True, se execută <code>index = 1;</code> și <code>break;</code>), apoi <code>return index;</code> (executat).</li><li class='leading-relaxed'><strong>Concluzie:</strong> Deoarece targetul este găsit, codul parcurge absolut toate liniile funcției. Prin urmare, un singur caz de test în care elementul este găsit este suficient pentru 100% Statement Coverage.</li></ol>"
+    },
+    {
+      "id": "q11",
+      "type": "practical",
+      "code": "function getTrafficLightAction(color) {\n    let action;\n    switch (color) {\n        case 'rosu':\n            action = 'Stop';\n            break;\n        case 'galben':\n            action = 'Atentie';\n            break;\n        case 'verde':\n            action = 'Mergi';\n            break;\n        default:\n            action = 'Eroare semnal';\n    }\n    return action;\n}",
+      "question": "11. (Exercițiu Practic) Analizează codul de mai sus. Pentru a obține o acoperire completă a deciziilor (100% Decision Coverage) în această structură switch-case, de câte cazuri de test ai nevoie?",
+      "options": [
+        "A) 3 cazuri de test (rosu, galben, verde)",
+        "B) 4 cazuri de test (rosu, galben, verde și o culoare necunoscută pentru ramura default)",
+        "C) 1 singur caz de test (default)"
+      ],
+      "correct": 1,
+      "explanation": "Fiecare clauză case, inclusiv ramura default, constituie o decizie/ramură distinctă de execuție. Sunt necesare 4 cazuri de test pentru a acoperi toate ramurile.",
+      "stepByStep": "<ol class='list-decimal list-inside space-y-3 text-gray-700'><li class='leading-relaxed'><strong>Natura structurii Switch:</strong> O instrucțiune <code>switch-case</code> este o structură de control multi-ramificată, echivalentă cu un lanț de <code>if-else if-else</code>.</li><li class='leading-relaxed'><strong>Ramurile decizionale distincte:</strong> Avem 4 ramuri posibile de parcurs: 'rosu', 'galben', 'verde' și 'default' (pentru culori necunoscute).</li><li class='leading-relaxed'><strong>Criteriul Decision Coverage:</strong> Pentru a obține 100% Decision Coverage, fiecare dintre aceste 4 ramuri trebuie evaluată cel puțin o dată ca fiind aleasă.</li><li class='leading-relaxed'><strong>Concluzie:</strong> Este necesar să transmitem câte o valoare pentru fiecare caz în parte. Astfel, 4 cazuri de test reprezintă numărul minim și suficient pentru acoperirea totală a deciziilor.</li></ol>"
     }
   ]
 }
+

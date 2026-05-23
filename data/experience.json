@@ -5,7 +5,7 @@
       "id": "exploratory",
       "icon": "🔍",
       "title": "Exploratorie",
-      "description": "Învățare, planificare și execuție simultană.",
+      "description": "O metodă extrem de dinamică în care procesul de învățare a aplicației, planificarea scenariilor și execuția efectivă a testelor se desfășoară în mod simultan. Testerul explorează liber sistemul, fiind ghidat de intuiție și de feedbackul primit instantaneu, fără a fi constrâns de scripturi rigide sau cazuri de testare scrise în avans.",
       "when": "Documentație slabă, timp limitat.",
       "example": "Navigarea prin e-commerce, adăugare produse, deconectare bruscă."
     },
@@ -13,7 +13,7 @@
       "id": "error-guessing",
       "icon": "🎯",
       "title": "Error Guessing",
-      "description": "Intuiția testerului despre erori.",
+      "description": "Tehnică intuitivă în care testerul folosește propria experiență pentru a anticipa unde este cel mai probabil să apară defecte sau vulnerabilități în cod. Această anticipare se bazează pe cunoașterea greșelilor frecvente ale dezvoltatorilor și pe înțelegerea punctelor slabe dintr-un anumit mediu tehnologic.",
       "when": "Sisteme complexe.",
       "example": "Introducere \"0\" sau negativ în câmpul de \"Vârstă\", anticipând lipsa validării."
     },
@@ -21,7 +21,7 @@
       "id": "checklist-based",
       "icon": "✅",
       "title": "Checklist-based",
-      "description": "Liste de control predefinite.",
+      "description": "Metodă structurată în care testerul folosește o listă de control (checklist) predefinită cu puncte cheie pentru a asigura verificarea tuturor elementelor esențiale. Aceasta combină rigoarea listelor standard cu libertatea testerului de a detalia verificările în funcție de context.",
       "when": "Sarcini repetitive.",
       "example": "Formular înregistrare: există buton de \"Cancel\"?, toate câmpurile obligatorii au \"*\"?"
     }

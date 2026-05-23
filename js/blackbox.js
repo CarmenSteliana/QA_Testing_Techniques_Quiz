@@ -1,20 +1,93 @@
 export default function initBlackbox(data) {
-    document.getElementById('bb-title').textContent = data.title;
+    const titleEl = document.getElementById('bb-title');
+    titleEl.className = "text-3xl md:text-4xl font-extrabold mb-4 text-indigo-950 tracking-tight";
+    titleEl.textContent = data.title;
     
     const descEl = document.getElementById('bb-desc');
-    descEl.innerHTML = `Aceste tehnici au fost abordate în cadrul cursului de <a href="${data.courseLink}" target="_blank" class="text-indigo-600 underline font-semibold hover:text-indigo-800">Testare Funcțională</a>. <a href="${data.courseLink}" target="_blank" class="text-indigo-600 font-bold hover:text-indigo-800 underline">Accesează cursul aici</a> pentru a vedea detaliile. Acum le aplicăm și în testarea non-funcțională pentru a asigura robustețea sistemului.`;
+    descEl.className = "mb-8 text-sm md:text-base text-slate-600 leading-relaxed font-semibold max-w-3xl";
+    descEl.innerHTML = `Aceste tehnici au fost abordate în cadrul cursului de <a href="${data.courseLink}" target="_blank" class="text-indigo-600 underline font-semibold hover:text-indigo-800 transition-colors">Testare Funcțională</a>. <a href="${data.courseLink}" target="_blank" class="text-indigo-600 font-bold hover:text-indigo-800 underline transition-colors">Accesează cursul aici</a> pentru a vedea detaliile. Acum le aplicăm și în testarea non-funcțională pentru a asigura robustețea sistemului.`;
     
+    function getSvgIcon(id) {
+        switch (id) {
+            case 'compatibility':
+                return `<svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>`;
+            case 'usability':
+                return `<svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>`;
+            case 'security':
+                return `<svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>`;
+            case 'performance':
+                return `<svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>`;
+            default:
+                return `<svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>`;
+        }
+    }
+
     const gridEl = document.getElementById('bb-grid');
     gridEl.innerHTML = data.items.map(item => `
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:border-indigo-300 transition-all">
-            <h3 class="text-xl font-bold text-indigo-800 mb-2">${item.icon} ${item.title}</h3>
-            <p class="text-sm text-gray-600 mb-4">${item.description}</p>
-            <div class="bg-indigo-50 p-3 rounded text-xs text-indigo-800 mb-2">
-                <strong>Tehnica:</strong> ${item.technique}
+        <div class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-200/60 border-l-4 border-l-indigo-600 hover:border-l-indigo-400 hover:shadow-xl hover:shadow-indigo-100/40 hover:scale-[1.02] transition-all duration-300 ease-out flex flex-col justify-between">
+            <div>
+                <div class="flex items-center gap-3.5 mb-4">
+                    <div class="p-3 bg-indigo-50 border border-indigo-100/60 rounded-xl group-hover:bg-indigo-100/50 transition-colors shadow-sm">
+                        ${getSvgIcon(item.id)}
+                    </div>
+                    <h3 class="text-xl font-extrabold text-slate-900 group-hover:text-indigo-700 transition-colors tracking-tight">${item.title}</h3>
+                </div>
+                <p class="text-sm text-slate-600 mb-2 leading-relaxed font-semibold">${item.description}</p>
+                
+                <!-- Collapsible Details -->
+                <div id="details-${item.id}" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                    <div class="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-3">
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60 text-xs text-slate-800 leading-relaxed font-bold shadow-inner">
+                            <strong class="text-indigo-950 font-extrabold block mb-1">🔍 Tehnică Aplicată:</strong> 
+                            ${item.technique}
+                        </div>
+                        <div class="bg-indigo-50/30 p-3.5 rounded-xl border border-indigo-100/40 text-xs text-indigo-900 leading-relaxed font-bold shadow-inner">
+                            <strong class="text-slate-950 font-extrabold block mb-1">💡 Exemplu Practic:</strong> 
+                            ${item.example}
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="bg-indigo-100 p-3 rounded text-xs text-indigo-900">
-                <strong>Exemplu:</strong> ${item.example}
+            
+            <!-- Action Button -->
+            <div class="mt-6 border-t border-slate-100 pt-4">
+                <button data-toggle="details-${item.id}" class="w-full py-2.5 px-4 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-extrabold rounded-xl text-xs flex items-center justify-center gap-2 border border-indigo-100/50 shadow-sm transition-all active:scale-[0.98]">
+                    <span>Afișează Detalii Tehnice</span>
+                    <svg class="w-4 h-4 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
             </div>
         </div>
     `).join('');
+
+    // Bind click events to toggle buttons
+    gridEl.querySelectorAll('button[data-toggle]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetId = btn.getAttribute('data-toggle');
+            const targetEl = document.getElementById(targetId);
+            const iconSvg = btn.querySelector('svg');
+            const textSpan = btn.querySelector('span');
+            
+            if (targetEl.classList.contains('active')) {
+                // Collapse
+                targetEl.style.maxHeight = '0';
+                targetEl.style.opacity = '0';
+                targetEl.classList.remove('active');
+                iconSvg.classList.remove('rotate-180');
+                textSpan.textContent = "Afișează Detalii Tehnice";
+                btn.classList.remove('bg-indigo-150', 'text-indigo-900');
+                btn.classList.add('bg-indigo-50', 'text-indigo-700');
+            } else {
+                // Expand
+                targetEl.classList.add('active');
+                targetEl.style.maxHeight = targetEl.scrollHeight + 'px';
+                targetEl.style.opacity = '1';
+                iconSvg.classList.add('rotate-180');
+                textSpan.textContent = "Ascunde Detaliile";
+                btn.classList.add('bg-indigo-150', 'text-indigo-900');
+                btn.classList.remove('bg-indigo-50', 'text-indigo-700');
+            }
+        });
+    });
 }

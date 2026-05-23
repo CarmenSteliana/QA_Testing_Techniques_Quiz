@@ -1,53 +1,54 @@
 {
   "title": "White Box Testing",
+  "description": "Testarea White Box (sau structurală) este o metodă de testare în care structura internă, designul și codul sursă al aplicației sunt cunoscute și verificate direct. Se concentrează pe parcurgerea instrucțiunilor, ramurilor logice, condițiilor și buclelor din cod pentru a asigura o acoperire completă și a identifica erori ascunse la nivel de arhitectură.",
   "items": [
     {
       "id": 1,
       "title": "1. Statement Coverage",
-      "definition": "Tehnică ce garantează că fiecare instrucțiune executabilă din cod este parcursă cel puțin o dată în cadrul testelor. Este cel mai simplu nivel de acoperire structural, dar nu distinge între ramuri diferite ale aceluiași bloc condițional.",
+      "definition": "Tehnică ce garantează că fiecare instrucțiune executabilă din cod este parcursă cel puțin o dată în cadrul testelor. Esențială pentru a asigura rularea codului de bază.",
       "description": "Execută fiecare linie de cod.",
-      "code": "if (x > 0) print(\"Pozitiv\");",
-      "coverageRule": "100% când: x = 1."
+      "code": "if (numar > 0) {\n    print(\"Pozitiv\");\n}",
+      "coverageRule": "100% când: numar = 5."
     },
     {
       "id": 2,
       "title": "2. Decision Coverage",
-      "definition": "Tehnică ce asigură că fiecare decizie (ramură) a structurilor de control (if/else, switch) este evaluată cel puțin o dată ca True și cel puțin o dată ca False. Este mai riguroasă decât Statement Coverage, deoarece forțează testarea ambelor rezultate posibile ale fiecărei decizii.",
+      "definition": "Tehnică ce asigură că fiecare decizie a structurilor de control este evaluată cel puțin o dată ca True și o dată ca False.",
       "description": "Execută fiecare ramură (T/F).",
-      "code": "if (x > 0) A(); else B();",
-      "coverageRule": "100% când: x=1 (T) și x=0 (F)."
+      "code": "if (puncte > 50) {\n    print(\"Premium\");\n} else {\n    print(\"Standard\");\n}",
+      "coverageRule": "100% când: puncte = 60 (True) și puncte = 40 (False)."
     },
     {
       "id": 3,
       "title": "3. Path Coverage",
-      "definition": "Tehnică ce impune testarea tuturor căilor posibile de execuție prin codul sursă, de la punctul de intrare până la ieșire. Include toate combinațiile posibile de ramuri și bucle, oferind cel mai înalt grad de acoperire structurală, dar poate deveni exponențial de complex pentru cod cu multe condiții.",
+      "definition": "Tehnică ce impune testarea tuturor căilor posibile de execuție prin codul sursă, de la punctul de intrare până la ieșire.",
       "description": "Execută toate căile.",
-      "code": "if(a) if(b) C();",
-      "coverageRule": "100% când: (T,T), (T,F), (F)."
+      "code": "if (logat) {\n    if (fonduri) {\n        tranzactie();\n    } else {\n        eroare();\n    }\n} else {\n    autentificare();\n}",
+      "coverageRule": "Căi posibile: 1) Logat + Fonduri; 2) Logat + Fără Fonduri; 3) Nelogat."
     },
     {
       "id": 4,
       "title": "4. Condition Coverage",
-      "definition": "Tehnică ce verifică independent fiecare condiție atomică dintr-o expresie compusă, asigurând că aceasta ia atât valoarea True cât și valoarea False în cadrul testelor, indiferent de comportamentul celorlalte condiții din aceeași expresie.",
+      "definition": "Tehnică ce verifică independent fiecare condiție dintr-o expresie compusă, asigurând că aceasta ia atât valoarea True cât și False.",
       "description": "Sub-condiții T/F.",
-      "code": "if (A > 0 || B < 0)",
-      "coverageRule": "100% când: A>0, A<=0, B<0, B>=0."
+      "code": "if (membru || voucher) {\n    reducere();\n} else {\n    pretIntreg();\n}",
+      "coverageRule": "Pentru expresia <b>(membru || voucher)</b>, avem condițiile independente <b>A (membru)</b> și <b>B (voucher)</b>.<br><br><b>Toate combinațiile posibile de intrări (4 cazuri):</b><br>1) membru = <b>True</b>, voucher = <b>True</b> (Rezultat: True)<br>2) membru = <b>True</b>, voucher = <b>False</b> (Rezultat: True)<br>3) membru = <b>False</b>, voucher = <b>True</b> (Rezultat: True)<br>4) membru = <b>False</b>, voucher = <b>False</b> (Rezultat: False)<br><br><b>Pentru 100% Condition Coverage, selectăm 2 teste ce acoperă ambele valori (True/False) ale fiecărei condiții:</b><br>• <b>Test 1:</b> membru = <b>True</b>, voucher = <b>False</b><br>• <b>Test 2:</b> membru = <b>False</b>, voucher = <b>True</b><br><i>(Fiecare condiție a fost evaluată atât True, cât și False, realizând acoperire de 100% cu doar 2 teste în loc de 4).</i>"
     },
     {
       "id": 5,
       "title": "5. Multiple Condition Coverage",
-      "definition": "Tehnică ce testează toate combinațiile posibile ale valorilor True/False pentru fiecare condiție individuală dintr-o decizie compusă. Pentru N condiții atomice, sunt necesare 2ᴺ cazuri de test. Oferă acoperire completă dar implică un volum mare de teste.",
+      "definition": "Tehnică ce testează toate combinațiile posibile ale valorilor True/False pentru fiecare condiție individuală dintr-o decizie compusă.",
       "description": "Toate combinațiile.",
-      "code": "if (A && B)",
-      "coverageRule": "100% când: (T,T), (T,F), (F,T), (F,F)."
+      "code": "if (venit && istoric) {\n    aprobare();\n} else {\n    respingere();\n}",
+      "coverageRule": "Pentru expresia <b>(venit && istoric)</b>, avem condițiile <b>A (venit)</b> și <b>B (istoric)</b>.<br><br><b>Pentru 100% Multiple Condition Coverage, testăm OBLIGATORIU toate cele 4 combinații posibile din tabelul de adevăr (2^N, unde N=2):</b><br>• <b>Test 1:</b> venit = <b>True</b>, istoric = <b>True</b> (Rezultat: True)<br>• <b>Test 2:</b> venit = <b>True</b>, istoric = <b>False</b> (Rezultat: False)<br>• <b>Test 3:</b> venit = <b>False</b>, istoric = <b>True</b> (Rezultat: False)<br>• <b>Test 4:</b> venit = <b>False</b>, istoric = <b>False</b> (Rezultat: False)"
     },
     {
       "id": 6,
       "title": "6. Loop Coverage",
-      "definition": "Tehnică specializată în testarea comportamentului buclelor (for, while, do-while) în trei scenarii critice: zero iterații (bucla nu se execută deloc), o singură iterație și un număr reprezentativ de iterații multiple. Detectează erori de tip off-by-one și probleme de inițializare.",
+      "definition": "Tehnică ce testează comportamentul buclelor în scenariile: zero iterații, o singură iterație și iterații multiple.",
       "description": "Bucle 0, 1, n.",
-      "code": "for(int i=0; i < n; i++) { ... }",
-      "coverageRule": "100% când: n=0, n=1, n>1."
+      "code": "for (let index = 0; index < total; index++) {\n    notifica(index);\n}",
+      "coverageRule": "Pentru a asigura 100% Loop Coverage, testăm bucla în punctele cheie de graniță (0, 1, n iterații):<br><br>• <b>Test 1 (0 iterații):</b> total = <b>0</b> -> bucla nu se execută deloc (0 < 0 este False).<br>• <b>Test 2 (1 iterație):</b> total = <b>1</b> -> bucla se execută exact o singură dată (pentru index = 0).<br>• <b>Test 3 (iterații multiple - n):</b> total = <b>5</b> -> bucla se execută de mai multe ori (pentru index = 0..4).<br><br><i>Notă: Dacă există o limită maximă (de exemplu MAX = 10), se vor testa și granițele: MAX-1 (total = 9), MAX (total = 10) și MAX+1 (total = 11).</i>"
     }
   ]
 }

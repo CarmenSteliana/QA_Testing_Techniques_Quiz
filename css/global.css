@@ -1,18 +1,23 @@
 /* Styles for QA Interactive Guide */
 .page-content {
-    animation: fadeIn 0.3s ease-in-out;
+    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 /* Custom interactive button style for quiz selection */
 .option-btn {
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .option-btn:disabled {
     cursor: not-allowed;
+}
+
+/* Custom premium hover pop spring animation curve */
+.group {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }

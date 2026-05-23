@@ -1,105 +1,80 @@
 <!DOCTYPE html>
 <html lang="ro">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuprins - Ghid Tehnici de Testare Software</title>
+    <title>Ghid Tehnici de Testare Software</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/global.css">
 </head>
-<body class="bg-gradient-to-br from-slate-50 to-indigo-50 text-gray-800 font-sans min-h-screen flex flex-col justify-between">
 
-    <!-- Header / Banner -->
-    <header class="py-12 px-6 text-center">
-        <h1 class="text-5xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-700 to-purple-600 bg-clip-text text-transparent mb-4">
-            Ghid Tehnici de Testare Software
-        </h1>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Explorați capitolele interactive de QA pentru a stăpâni conceptele fundamentale și avansate de testare software.
-        </p>
-    </header>
+<body class="bg-slate-100 text-slate-800 font-sans min-h-screen relative overflow-x-hidden">
 
-    <!-- Table of Contents Grid -->
-    <main class="max-w-6xl mx-auto px-6 py-6 w-full flex-1">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="flex flex-col md:flex-row min-h-screen relative z-10">
+        
+        <!-- Left Sidebar Navigation (Layered Light Sidebar) -->
+        <aside class="w-full md:w-80 bg-white border-r border-slate-200/80 flex flex-col justify-between p-6 shadow-sm z-30 md:sticky md:top-0 md:h-screen">
+            <div>
+                <!-- Brand Header -->
+                <div class="py-4 border-b border-slate-200/60">
+                    <h1 class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-700 to-purple-600 bg-clip-text text-transparent flex items-center gap-2">
+                        <span>⚡</span> QA Guide
+                    </h1>
+                    <p class="text-xs text-slate-500 font-semibold mt-1">Ghid Tehnici de Testare Software</p>
+                </div>
+                
+                <!-- Vertical Nav List -->
+                <nav class="flex flex-col gap-1.5 mt-8" id="sidebar-nav">
+                    <button data-page="home" class="w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl font-bold text-sm text-slate-500 hover:bg-slate-200/50 hover:text-slate-900 transition-all text-left">
+                        <span class="text-lg">🏠</span>
+                        <span>Acasă</span>
+                    </button>
+                    <button data-page="blackbox" class="w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl font-bold text-sm text-slate-500 hover:bg-slate-200/50 hover:text-slate-900 transition-all text-left">
+                        <span class="text-lg">🖥️</span>
+                        <span>Black Box</span>
+                    </button>
+                    <button data-page="whitebox" class="w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl font-bold text-sm text-slate-500 hover:bg-slate-200/50 hover:text-slate-900 transition-all text-left">
+                        <span class="text-lg">🧪</span>
+                        <span>White Box</span>
+                    </button>
+                    <button data-page="experience" class="w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl font-bold text-sm text-slate-500 hover:bg-slate-200/50 hover:text-slate-900 transition-all text-left">
+                        <span class="text-lg">🔍</span>
+                        <span>Experiență</span>
+                    </button>
+                    <button data-page="quiz" class="w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl font-bold text-sm text-slate-500 hover:bg-slate-200/50 hover:text-slate-900 transition-all text-left">
+                        <span class="text-lg">🎯</span>
+                        <span>Test de Evaluare</span>
+                    </button>
+                </nav>
+            </div>
             
-            <!-- Home -->
-            <a href="sections/home.html" class="group bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:border-indigo-300 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between">
-                <div>
-                    <div class="text-4xl mb-4">🏠</div>
-                    <h2 class="text-2xl font-bold text-indigo-900 mb-2 group-hover:text-indigo-600 transition">Acasă</h2>
-                    <p class="text-gray-600 text-sm">
-                        Introducere în ghid și o privire de ansamblu asupra celor trei categorii de tehnici de testare.
-                    </p>
-                </div>
-                <div class="mt-6 text-indigo-600 font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Deschide capitolul <span>→</span>
-                </div>
-            </a>
+            <!-- Sidebar Footer -->
+            <div class="pt-6 border-t border-slate-200/60 text-xxs text-slate-400 font-medium">
+                &copy; 2026 - CarmenSteliana
+            </div>
+        </aside>
 
-            <!-- Black Box -->
-            <a href="sections/blackbox.html" class="group bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:border-indigo-300 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between">
-                <div>
-                    <div class="text-4xl mb-4">🖥️</div>
-                    <h2 class="text-2xl font-bold text-indigo-900 mb-2 group-hover:text-indigo-600 transition">Black Box</h2>
-                    <p class="text-gray-600 text-sm">
-                        Testare bazată pe cerințe fără acces la cod, axată în special pe aspectele non-funcționale.
-                    </p>
+        <!-- Right Main Content Panel -->
+        <main class="flex-1 flex flex-col justify-between min-w-0 relative z-10">
+            <!-- Dynamic Content Area with Space Balancing and min-height centering -->
+            <div id="main-content" class="w-full max-w-5xl mx-auto px-6 py-12 transition-all duration-300 min-h-[calc(100vh-80px)] flex flex-col justify-center">
+                <div class="text-center py-20 text-slate-400">
+                    <p class="animate-pulse font-medium">Se încarcă capitolul...</p>
                 </div>
-                <div class="mt-6 text-indigo-600 font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Deschide capitolul <span>→</span>
-                </div>
-            </a>
+            </div>
+            
+            <!-- Global Footer -->
+            <footer class="py-6 px-8 text-center text-xs text-slate-400 border-t border-slate-200/80 bg-white">
+                Ghid QA EdTech Premium &bull; CarmenSteliana
+            </footer>
+        </main>
 
-            <!-- White Box -->
-            <a href="sections/whitebox.html" class="group bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:border-indigo-300 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between">
-                <div>
-                    <div class="text-4xl mb-4">🧪</div>
-                    <h2 class="text-2xl font-bold text-indigo-900 mb-2 group-hover:text-indigo-600 transition">White Box</h2>
-                    <p class="text-gray-600 text-sm">
-                        Analiză structurală a codului: Statement, Decision, Path, Condition, și Loop Coverage.
-                    </p>
-                </div>
-                <div class="mt-6 text-indigo-600 font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Deschide capitolul <span>→</span>
-                </div>
-            </a>
+    </div>
 
-            <!-- Experience Based -->
-            <a href="sections/experience.html" class="group bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:border-indigo-300 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between">
-                <div>
-                    <div class="text-4xl mb-4">🔍</div>
-                    <h2 class="text-2xl font-bold text-indigo-900 mb-2 group-hover:text-indigo-600 transition">Bazate pe Experiență</h2>
-                    <p class="text-gray-600 text-sm">
-                        Tehnici bazate pe intuiția testerului: Testare Exploratorie, Error Guessing și Liste de Control.
-                    </p>
-                </div>
-                <div class="mt-6 text-indigo-600 font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Deschide capitolul <span>→</span>
-                </div>
-            </a>
-
-            <!-- Quiz -->
-            <a href="sections/quiz.html" class="group bg-white p-8 rounded-2xl shadow-md border border-purple-100 hover:border-purple-300 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between">
-                <div>
-                    <div class="text-4xl mb-4">🎯</div>
-                    <h2 class="text-2xl font-bold text-purple-900 mb-2 group-hover:text-purple-600 transition">Test de Evaluare</h2>
-                    <p class="text-gray-600 text-sm">
-                        Verifică-ți cunoștințele prin acest chestionar interactiv grilă, cu 3 variante de răspuns și feedback instant.
-                    </p>
-                </div>
-                <div class="mt-6 text-purple-600 font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Deschide testul <span>→</span>
-                </div>
-            </a>
-
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-8 text-center text-xs text-gray-500 border-t border-gray-200 bg-white">
-        &copy; 2026 - CarmenSteliana /  Ghid Tehnici de Testare Software.
-    </footer>
+    <!-- Main router import -->
+    <script type="module" src="js/main.js"></script>
 
 </body>
+
 </html>
