@@ -1,0 +1,29 @@
+{
+  "title": "Bazate pe Experiență",
+  "items": [
+    {
+      "id": "exploratory",
+      "icon": "🔍",
+      "title": "Exploratorie",
+      "description": "Învățare, planificare și execuție simultană.",
+      "when": "Documentație slabă, timp limitat.",
+      "example": "Navigarea prin e-commerce, adăugare produse, deconectare bruscă."
+    },
+    {
+      "id": "error-guessing",
+      "icon": "🎯",
+      "title": "Error Guessing",
+      "description": "Intuiția testerului despre erori.",
+      "when": "Sisteme complexe.",
+      "example": "Introducere \"0\" sau negativ în câmpul de \"Vârstă\", anticipând lipsa validării."
+    },
+    {
+      "id": "checklist-based",
+      "icon": "✅",
+      "title": "Checklist-based",
+      "description": "Liste de control predefinite.",
+      "when": "Sarcini repetitive.",
+      "example": "Formular înregistrare: există buton de \"Cancel\"?, toate câmpurile obligatorii au \"*\"?"
+    }
+  ]
+}

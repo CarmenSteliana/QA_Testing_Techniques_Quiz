@@ -1,0 +1,93 @@
+{
+  "title": "Test de Evaluare Practică",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "1. (Black Box) Scenariu: Un câmp acceptă vârste între 18 și 65 ani. Care sunt valorile limită (BVA) pe care trebuie să le testezi?",
+      "options": [
+        "A) 18, 40, 65",
+        "B) 17, 18, 19 (limitele de jos) și 64, 65, 66 (limitele de sus)",
+        "C) 0, 18, 65, 100"
+      ],
+      "correct": 1,
+      "explanation": "Valori de testat: 17, 18, 19 (limita inferioară) și 64, 65, 66 (limita superioară)."
+    },
+    {
+      "id": "q2",
+      "question": "2. (White Box) Ce tip de coverage este necesar pentru a executa toate iterațiile unei bucle for(int i=0; i < n; i++) cu n=0, n=1 și n=5?",
+      "options": [
+        "A) Statement Coverage",
+        "B) Decision Coverage",
+        "C) Loop Coverage"
+      ],
+      "correct": 2,
+      "explanation": "Loop Coverage. Testarea unei bucle se face cu 0, 1 și iterații multiple."
+    },
+    {
+      "id": "q3",
+      "question": "3. (Experiență) Ai primit o aplicație fără nicio documentație și ai la dispoziție doar 2 ore să găsești erori critice. Ce tehnică folosești?",
+      "options": [
+        "A) Testare bazată pe specificații",
+        "B) Testarea Exploratorie",
+        "C) Testare structurală (White Box)"
+      ],
+      "correct": 1,
+      "explanation": "Testarea Exploratorie, deoarece permite învățarea și testarea în timp real fără documentație."
+    },
+    {
+      "id": "q4",
+      "question": "4. (Black Box) Un sistem acceptă parole de lungime 8-16 caractere. Folosind \"Equivalence Partitioning\", care set de valori de test este cel mai corect?",
+      "options": [
+        "A) 8 caractere, 12 caractere, 16 caractere",
+        "B) 7 caractere (invalid sub limită), 12 caractere (valid), 17 caractere (invalid peste limită)",
+        "C) 0 caractere, 8 caractere, 20 caractere"
+      ],
+      "correct": 1,
+      "explanation": "Un set de valori invalide (ex: 7 caractere), un set de valori valide (ex: 12 caractere) și un set de valori invalide (ex: 17 caractere)."
+    },
+    {
+      "id": "q5",
+      "question": "5. (White Box) Ce este necesar pentru \"Decision Coverage\" în codul: if (a > b) print(\"A\"); else print(\"B\"); ?",
+      "options": [
+        "A) Doar un test unde a > b",
+        "B) Două teste: unul cu a > b (ramura True) și unul cu a <= b (ramura False)",
+        "C) Trei teste: a > b, a < b, și a == b"
+      ],
+      "correct": 1,
+      "explanation": "Testarea cu a > b (ramura True) și a <= b (ramura False)."
+    },
+    {
+      "id": "q6",
+      "question": "6. (Experiență) Ai o funcție care calculează prețul total. Ai observat că adesea dezvoltatorii uită să gestioneze \"0\" sau numere negative. Ce tehnică aplici?",
+      "options": [
+        "A) Checklist-based Testing",
+        "B) Boundary Value Analysis",
+        "C) Error Guessing"
+      ],
+      "correct": 2,
+      "explanation": "Error Guessing, bazându-te pe experiența ta cu erorile comune din dezvoltare."
+    },
+    {
+      "id": "q7",
+      "question": "7. (White Box) Ce caz de test este necesar pentru 100% Statement Coverage în: if (x > 10) { print(\"A\"); } print(\"B\"); ?",
+      "options": [
+        "A) Un singur caz de test unde x > 10 (ex: x = 11)",
+        "B) Două cazuri de test: x = 11 și x = 5",
+        "C) Un singur caz de test unde x <= 10 (ex: x = 9)"
+      ],
+      "correct": 0,
+      "explanation": "Este necesar un singur caz de test unde x > 10 pentru a executa toate instrucțiunile (x > 10 execută print 'A', apoi se execută print 'B')."
+    },
+    {
+      "id": "q8",
+      "question": "8. (White Box) Pentru a testa Path Coverage în: if (a) if (b) X(); else Y();, care este numărul de căi independente?",
+      "options": [
+        "A) 2 căi",
+        "B) 3 căi: (a=True, b=True), (a=True, b=False) și (a=False)",
+        "C) 4 căi: toate combinațiile posibile"
+      ],
+      "correct": 1,
+      "explanation": "Există 3 căi: 1) (a=T, b=T) -> execută X; 2) (a=T, b=F) -> execută Y; 3) (a=F) -> iese din structură."
+    }
+  ]
+}

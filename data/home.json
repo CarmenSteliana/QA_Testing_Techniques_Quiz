@@ -1,0 +1,21 @@
+{
+  "title": "Ghid Tehnici de Testare Software",
+  "welcomeMessage": "Bine ați venit în centrul de resurse pentru QA. Navigați prin secțiunile din meniul lateral pentru a explora cele trei mari categorii de testare.",
+  "cards": [
+    {
+      "title": "Black Box",
+      "description": "Focus pe cerințe fără acces la cod.",
+      "borderColor": "border-indigo-500"
+    },
+    {
+      "title": "White Box",
+      "description": "Analiză detaliată a structurii interne.",
+      "borderColor": "border-emerald-500"
+    },
+    {
+      "title": "Experiență",
+      "description": "Bazat pe intuiție și istoric.",
+      "borderColor": "border-amber-500"
+    }
+  ]
+}

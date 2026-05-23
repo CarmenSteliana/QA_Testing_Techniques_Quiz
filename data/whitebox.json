@@ -1,0 +1,47 @@
+{
+  "title": "White Box Testing",
+  "items": [
+    {
+      "id": 1,
+      "title": "1. Statement Coverage",
+      "description": "Execută fiecare linie de cod.",
+      "code": "if (x > 0) print(\"Pozitiv\");",
+      "coverageRule": "100% când: x = 1."
+    },
+    {
+      "id": 2,
+      "title": "2. Decision Coverage",
+      "description": "Execută fiecare ramură (T/F).",
+      "code": "if (x > 0) A(); else B();",
+      "coverageRule": "100% când: x=1 (T) și x=0 (F)."
+    },
+    {
+      "id": 3,
+      "title": "3. Path Coverage",
+      "description": "Execută toate căile.",
+      "code": "if(a) if(b) C();",
+      "coverageRule": "100% când: (T,T), (T,F), (F)."
+    },
+    {
+      "id": 4,
+      "title": "4. Condition Coverage",
+      "description": "Sub-condiții T/F.",
+      "code": "if (A > 0 || B < 0)",
+      "coverageRule": "100% când: A>0, A<=0, B<0, B>=0."
+    },
+    {
+      "id": 5,
+      "title": "5. Multiple Condition",
+      "description": "Toate combinațiile.",
+      "code": "if (A && B)",
+      "coverageRule": "100% când: (T,T), (T,F), (F,T), (F,F)."
+    },
+    {
+      "id": 6,
+      "title": "6. Loop Coverage",
+      "description": "Bucle 0, 1, n.",
+      "code": "for(int i=0; i < n; i++) { ... }",
+      "coverageRule": "100% când: n=0, n=1, n>1."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "title": "Black Box (Focus Non-Funcțional)",
+  "description": "Aceste tehnici au fost abordate în cadrul cursului de Testare Funcțională. Acum le aplicăm și în testarea non-funcțională pentru a asigura robustețea sistemului.",
+  "courseLink": "https://carmensteliana.github.io/functional_testing_training/",
+  "items": [
+    {
+      "id": "compatibility",
+      "icon": "🖥️",
+      "title": "Compatibilitate",
+      "description": "Verifică dacă aplicația rulează corect pe diverse platforme.",
+      "technique": "Equivalence Partitioning (Gruparea configurațiilor în clase echivalente).",
+      "example": "Gruparea pe browsere (Webkit/Safari vs. Chromium/Chrome)."
+    },
+    {
+      "id": "usability",
+      "icon": "👤",
+      "title": "Uzabilitate",
+      "description": "Evaluează cât de ușor este pentru un utilizator să învețe interfața.",
+      "technique": "Checklist-based Testing & Heuristic Evaluation.",
+      "example": "Măsurarea numărului de click-uri pentru finalizarea unei achiziții."
+    },
+    {
+      "id": "security",
+      "icon": "🔒",
+      "title": "Securitate",
+      "description": "Protejează datele împotriva accesului neautorizat.",
+      "technique": "Negative Testing.",
+      "example": "Testarea rezistenței la SQL Injection prin caractere speciale în login."
+    },
+    {
+      "id": "performance",
+      "icon": "⚡",
+      "title": "Performanță",
+      "description": "Verifică timpul de răspuns și stabilitatea.",
+      "technique": "Boundary Value Analysis (BVA).",
+      "example": "Testarea la 999, 1000, 1001 utilizatori simultani pentru a identifica punctul de degradare a performanței."
+    }
+  ]
+}
