@@ -1,16 +1,54 @@
-/* Styles for QA Interactive Guide */
-.page-content {
-    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+/* Styles for QA Interactive Guide Premium */
+
+:root {
+    --transition-premium: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
+.page-content {
+    animation: pageSlideUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pageSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scrollbar Custom Premium */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
 }
 
 /* Custom interactive button style for quiz selection */
 .option-btn {
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: var(--transition-premium);
 }
 
 .option-btn:disabled {
@@ -19,5 +57,53 @@
 
 /* Custom premium hover pop spring animation curve */
 .group {
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Collapsible Box Details */
+.active-collapse {
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease-in-out;
+}
+
+/* Hamburger Active States */
+#menu-toggle.active #hamburger-line1 {
+    transform: translateY(7px) rotate(45deg);
+}
+
+#menu-toggle.active #hamburger-line2 {
+    opacity: 0;
+    transform: translateX(10px);
+}
+
+#menu-toggle.active #hamburger-line3 {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Glassmorphism custom classes */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.dark .glass-panel {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Prism Overrides to fit nicely in console layout */
+pre[class*="language-"] {
+    margin: 0 !important;
+    padding: 1.25rem !important;
+    background: #0f172a !important; /* slate-900 */
+    border-radius: 0.75rem !important;
+    border: 1px solid #1e293b !important; /* slate-800 */
+}
+
+code[class*="language-"] {
+    font-size: 0.8rem !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
 }
