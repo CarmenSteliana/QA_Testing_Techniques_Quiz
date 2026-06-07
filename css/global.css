@@ -1,5 +1,22 @@
 /* Styles for QA Interactive Guide Premium */
 
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 17.5px;
+    }
+}
+
+@media (min-width: 1024px) {
+    html {
+        font-size: 18.5px;
+    }
+}
+
 :root {
     --transition-premium: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
