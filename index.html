@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghid Tehnici de Testare Software</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap"
+        rel="stylesheet">
     <!-- Tailwind CSS dynamic CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -12,6 +18,9 @@
             darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
                     fontSize: {
                         'xxs': '0.65rem',
                     }
@@ -25,21 +34,33 @@
     <link rel="stylesheet" href="css/global.css">
 </head>
 
-<body class="bg-slate-100 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans min-h-screen relative overflow-x-hidden transition-colors duration-300">
+<body
+    class="bg-slate-100 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans min-h-screen relative overflow-x-hidden transition-colors duration-300">
 
     <!-- Mobile Header -->
-    <header class="w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 flex md:hidden items-center justify-between px-6 py-4 sticky top-0 z-40 shadow-sm transition-colors duration-300">
-        <h1 class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent flex items-center gap-2">
+    <header
+        class="w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 flex md:hidden items-center justify-between px-6 py-4 sticky top-0 z-40 shadow-sm transition-colors duration-300">
+        <h1
+            class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent flex items-center gap-2">
             <span>⚡</span> QA Guide
         </h1>
         <div class="flex items-center gap-3">
             <!-- Mobile Dark Mode Toggle -->
-            <button id="theme-toggle-mobile" class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-800/60 text-slate-600 dark:text-slate-300 hover:scale-105 active:scale-95 transition-all">
-                <svg id="theme-toggle-dark-icon-mobile" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                <svg id="theme-toggle-light-icon-mobile" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path></svg>
+            <button id="theme-toggle-mobile"
+                class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-800/60 text-slate-600 dark:text-slate-300 hover:scale-105 active:scale-95 transition-all">
+                <svg id="theme-toggle-dark-icon-mobile" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon-mobile" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                        clip-rule="evenodd"></path>
+                </svg>
             </button>
             <!-- Hamburger Menu Button -->
-            <button id="menu-toggle" class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-800/60 text-slate-700 dark:text-slate-300 flex flex-col justify-center items-center gap-1.5 w-10 h-10 transition-all hover:scale-105 active:scale-95" aria-label="Deschide meniu">
+            <button id="menu-toggle"
+                class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-800/60 text-slate-700 dark:text-slate-300 flex flex-col justify-center items-center gap-1.5 w-10 h-10 transition-all hover:scale-105 active:scale-95"
+                aria-label="Deschide meniu">
                 <span class="w-5 h-0.5 bg-current transition-all duration-300" id="hamburger-line1"></span>
                 <span class="w-5 h-0.5 bg-current transition-all duration-300" id="hamburger-line2"></span>
                 <span class="w-5 h-0.5 bg-current transition-all duration-300" id="hamburger-line3"></span>
@@ -48,61 +69,78 @@
     </header>
 
     <!-- Overlay when sidebar is open on mobile -->
-    <div id="sidebar-overlay" class="fixed inset-0 bg-slate-950/40 backdrop-blur-sm z-40 hidden transition-opacity duration-300 opacity-0 md:hidden"></div>
+    <div id="sidebar-overlay"
+        class="fixed inset-0 bg-slate-950/40 backdrop-blur-sm z-40 hidden transition-opacity duration-300 opacity-0 md:hidden">
+    </div>
 
     <div class="flex flex-col md:flex-row min-h-screen relative z-10">
-        
+
         <!-- Left Sidebar Navigation (Layered Light/Dark Sidebar) -->
-        <aside id="sidebar-aside" class="fixed inset-y-0 left-0 w-80 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-r border-slate-200/80 dark:border-slate-800/80 flex flex-col justify-between p-6 shadow-2xl md:shadow-sm z-50 md:sticky md:top-0 md:h-screen transform -translate-x-full md:translate-x-0 transition-all duration-300 ease-in-out">
+        <aside id="sidebar-aside"
+            class="fixed inset-y-0 left-0 w-64 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-r border-slate-200/80 dark:border-slate-800/80 flex flex-col justify-between p-5 shadow-2xl md:shadow-sm z-50 md:sticky md:top-0 md:h-screen transform -translate-x-full md:translate-x-0 transition-all duration-300 ease-in-out">
             <div>
                 <!-- Brand Header -->
-                <div class="py-4 border-b border-slate-200/60 dark:border-slate-800/60 flex items-center justify-between">
+                <div
+                    class="py-4 border-b border-slate-200/60 dark:border-slate-800/60 flex items-center justify-between">
                     <div>
-                        <h1 class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-600 to-purple-500 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent flex items-center gap-2">
+                        <h1
+                            class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-600 to-purple-500 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent flex items-center gap-2">
                             <span>⚡</span> QA Guide
                         </h1>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-1">Ghid Tehnici de Testare</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-1">Ghid Tehnici de Testare
+                        </p>
                     </div>
                     <!-- Close button for mobile -->
-                    <button id="menu-close" class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 md:hidden transition-colors">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    <button id="menu-close"
+                        class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 md:hidden transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
                     </button>
                 </div>
-                
+
                 <!-- Vertical Nav List -->
                 <nav class="flex flex-col gap-1.5 mt-8" id="sidebar-nav">
-                    <button data-page="home" class="w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl font-bold text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100 transition-all text-left">
+                    <button data-page="home"
+                        class="w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl font-bold text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100 transition-all text-left">
                         <span class="text-lg">🏠</span>
                         <span>Acasă</span>
                     </button>
-                    <button data-page="blackbox" class="w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl font-bold text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100 transition-all text-left">
+                    <button data-page="blackbox"
+                        class="w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl font-bold text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100 transition-all text-left">
                         <span class="text-lg">🖥️</span>
                         <span>Black Box</span>
                     </button>
-                    <button data-page="whitebox" class="w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl font-bold text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100 transition-all text-left">
+                    <button data-page="whitebox"
+                        class="w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl font-bold text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100 transition-all text-left">
                         <span class="text-lg">🧪</span>
                         <span>White Box</span>
                     </button>
-                    <button data-page="experience" class="w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl font-bold text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100 transition-all text-left">
+                    <button data-page="experience"
+                        class="w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl font-bold text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100 transition-all text-left">
                         <span class="text-lg">🔍</span>
                         <span>Experiență</span>
                     </button>
-                    <button data-page="quiz" class="w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl font-bold text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100 transition-all text-left">
+                    <button data-page="quiz"
+                        class="w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl font-bold text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100 transition-all text-left">
                         <span class="text-lg">🎯</span>
                         <span>Test de Evaluare</span>
                     </button>
                 </nav>
             </div>
-            
+
             <!-- Sidebar Footer & Switch Theme -->
             <div class="pt-6 border-t border-slate-200/60 dark:border-slate-800/60 flex flex-col gap-4">
                 <!-- Desktop Theme Toggle -->
-                <button id="theme-toggle-desktop" class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-800/60 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all hover:scale-[1.01] active:scale-[0.99]">
+                <button id="theme-toggle-desktop"
+                    class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-800/60 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all hover:scale-[1.01] active:scale-[0.99]">
                     <span class="flex items-center gap-2">
                         <span class="text-base" id="theme-text-icon">☀️</span>
                         <span id="theme-text">Mod Luminos</span>
                     </span>
-                    <span class="text-xs bg-slate-200/80 dark:bg-slate-700/80 px-2 py-0.5 rounded-md text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Modifică</span>
+                    <span
+                        class="text-[10px] bg-slate-200/80 dark:bg-slate-700/80 px-1.5 py-0.5 rounded-md text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Modifică</span>
                 </button>
                 <div class="text-xxs text-slate-400 dark:text-slate-500 font-medium">
                     &copy; 2026 - CarmenSteliana
@@ -113,14 +151,16 @@
         <!-- Right Main Content Panel -->
         <main class="flex-1 flex flex-col justify-between min-w-0 relative z-10">
             <!-- Dynamic Content Area with Space Balancing and min-height centering -->
-            <div id="main-content" class="w-full max-w-5xl mx-auto px-4 py-6 md:px-8 md:py-12 transition-all duration-300 min-h-[calc(100vh-80px)] flex flex-col justify-center">
+            <div id="main-content"
+                class="w-full max-w-5xl mx-auto px-4 py-6 md:px-8 md:py-12 transition-all duration-300 min-h-[calc(100vh-80px)] flex flex-col justify-center">
                 <div class="text-center py-20 text-slate-400 dark:text-slate-500">
                     <p class="animate-pulse font-medium">Se încarcă capitolul...</p>
                 </div>
             </div>
-            
+
             <!-- Global Footer -->
-            <footer class="py-6 px-8 text-center text-xs text-slate-400 dark:text-slate-500 border-t border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md">
+            <footer
+                class="py-6 px-8 text-center text-xs text-slate-400 dark:text-slate-500 border-t border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md">
                 Ghid QA EdTech Premium &bull; CarmenSteliana
             </footer>
         </main>
